@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Header from "./../../components/Header"
 
 class Main extends Component {
   state = {
@@ -7,7 +8,9 @@ class Main extends Component {
 
     render() {
         return (
-            <p>Hello world!</p>
+            <div className="container">
+                <Header></Header>
+            </div>
         )
     }
 }
