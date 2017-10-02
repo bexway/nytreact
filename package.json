@@ -1,7 +1,7 @@
 {
   "name": "nytreact",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/bexway/nytreact",
   "author": "Bex Way <rebeccaway2016@u.northwestern.edu>",
   "license": "MIT",
