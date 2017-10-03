@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "./Search.css";
+import "./Saved.css";
 import API from "../../utils/API.js"
 
-class Search extends Component {
+class Saved extends Component {
   state = {
     articles: []
   };
@@ -13,7 +12,7 @@ class Search extends Component {
   }
 
   loadarticles = () => {
-    API.getNewArticles()
+    API.getSavedArticles()
       .then(res => {
         this.setState({ articles: res.data })
       }
@@ -24,8 +23,7 @@ class Search extends Component {
     render() {
         return (
             <div>
-              <p>SEARCH PAGE</p>
-              <Link to={"/saved"}>Test</Link>
+              <p>SAVED PAGE</p>
               {this.state.articles}
             </div>
             
@@ -33,4 +31,4 @@ class Search extends Component {
     }
 }
 
-export default Search;
+export default Saved;

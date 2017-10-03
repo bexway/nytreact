@@ -1,7 +1,11 @@
 import axios from "axios";
 
 export default {
-  getArticles: function() {
+  getNewArticles: function() {
     return axios.get("/api/saved");
   },
+  getSavedArticles: function() {
+    return axios.get("/api/saved");
+  }
+  //TODO: post and delete on saved articles route
 };
