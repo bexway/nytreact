@@ -2,11 +2,21 @@ import axios from "axios";
 //TODO: replace this with heroku config
 import authKey from "./apikey"
 
-var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" +
-  authKey;
+var baseURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
 export default {
-  getNewArticles: function() {
+  getNewArticles: function(query, begin, end) {
+    let queryURL = baseURL + `?api-key=${authKey}`;
+    if(query){
+      queryURL += `&q=${query.trim()}`
+    }
+    if(begin){
+      queryURL += `&begin_date=${begin.replace(/-/g, "")}`
+    }
+    if(end){
+      queryURL += `&end_date=${end.replace(/-/g, "")}`
+    }
+    console.log(queryURL)
     return axios.get(queryURL);
   },
   getSavedArticles: function() {
