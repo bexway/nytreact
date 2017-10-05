@@ -18,8 +18,13 @@ export default {
     }
     return axios.get(queryURL);
   },
+
   getSavedArticles: function() {
     return axios.get("/api/saved");
+  },
+  
+  saveArticle: function(articleData) {
+    return axios.post("/api/saved", articleData);
   }
   //TODO: post and delete on saved articles route
 };

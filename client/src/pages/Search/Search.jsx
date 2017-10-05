@@ -21,10 +21,18 @@ class Search extends Component {
     API.getNewArticles(this.state.query, this.state.startDate, this.state.endDate)
       .then(res => {
         this.setState({ articles: res.data.response.docs })
-      }
-      )
+      })
       .catch(err => console.log(err));
   };
+
+  savearticle = articleObject =>{
+    API.saveArticle(articleObject)
+    .then(res => {
+      //TODO: update to show that the article has been saved?
+      console.log(res)
+    })
+    .catch(err => console.log(err));
+  }
 
   //When typing input into forms, update the state based on whatever key event happened
   handleInputChange = event => {
@@ -37,6 +45,18 @@ class Search extends Component {
     else if(event.target.name === "search-end"){
       this.setState({ endDate : event.target.value });
     }
+  };
+
+  handleArticleSave = event => {
+    let url = event.target.parentNode.firstElementChild.href;
+    let headline = event.target.parentNode.firstElementChild.firstElementChild.textContent;
+    let date = event.target.parentNode.childNodes[1].textContent;
+    this.savearticle({
+      url: url,
+      headline: headline,
+      date: date
+    });
+
   }
 
   handleFormSubmit = event => {
@@ -57,7 +77,7 @@ class Search extends Component {
                 handleFormSubmit={this.handleFormSubmit}
                 handleInputChange={this.handleInputChange}
               />
-              <ArticleDisplay articles={this.state.articles} />
+              <ArticleDisplay articles={this.state.articles} handleArticleSave={this.handleArticleSave} />
             </div>
           </div>
           
