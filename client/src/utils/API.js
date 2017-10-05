@@ -16,7 +16,6 @@ export default {
     if(end){
       queryURL += `&end_date=${end.replace(/-/g, "")}`
     }
-    console.log(queryURL)
     return axios.get(queryURL);
   },
   getSavedArticles: function() {

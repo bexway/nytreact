@@ -20,7 +20,6 @@ class Search extends Component {
   loadarticles = () => {
     API.getNewArticles(this.state.query, this.state.startDate, this.state.endDate)
       .then(res => {
-        console.log(res.data.response.docs)
         this.setState({ articles: res.data.response.docs })
       }
       )
@@ -29,7 +28,6 @@ class Search extends Component {
 
   //When typing input into forms, update the state based on whatever key event happened
   handleInputChange = event => {
-    console.log(event.target)
     if(event.target.name === "search-query"){
       this.setState({ query : event.target.value });
     }
