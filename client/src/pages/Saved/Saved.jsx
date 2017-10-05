@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Saved.css";
 import API from "../../utils/API.js"
 import ArticleDisplay from "../../components/ArticleDisplay"
@@ -23,18 +24,22 @@ class Saved extends Component {
 
   deletearticle = (id) => {
     API.deleteArticle(id)
+    .then(res => {
+        this.loadarticles()
+    })
+    .catch(err => console.log(err));
   }
 
   handleArticleDelete = event => {
-    let id = "test"
-    this.savearticle(id);
+    let id = event.target.id
+    this.deletearticle(id);
   }
 
   render() {
       return (
           <div>
-            <p>SAVED PAGE</p>
-            <ArticleDisplay articles={this.state.articles}  handleFunction={this.handleArticleDelete} operation="Delete" />
+            <Link to={"/"}>Search for articles</Link>
+            <ArticleDisplay articles={this.state.articles} handleFunction={this.handleArticleDelete} operation="Delete" />
           </div>
       )
   }

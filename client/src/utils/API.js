@@ -28,6 +28,6 @@ export default {
   },
 
   deleteArticle: function(articleId) {
-    return axios.delete("/api/saved", articleId);
+    return axios.delete("/api/saved/" + articleId);
   }
 };

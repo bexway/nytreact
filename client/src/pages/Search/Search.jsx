@@ -67,8 +67,7 @@ class Search extends Component {
   render() {
       return (
           <div>
-            <p>SEARCH PAGE</p>
-            <Link to={"/saved"}>saved</Link>
+            <Link to={"/saved"}>See saved articles</Link>
             <div>
               <QueryForm 
                 search={this.state.query}

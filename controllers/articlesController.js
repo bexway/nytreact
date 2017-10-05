@@ -16,9 +16,9 @@ module.exports = {
     },
     deleteArticle: (req, res) => {
         db.Article
-        .findById({ _id: req.body })
+        .findById({ _id: req.params.id })
         .then(ItemToDelete => ItemToDelete.remove())
         .then(result => res.json(result))
-        .catch(err => res.status(422).json(err));
+        .catch(err => res.json(err));
     }
 };

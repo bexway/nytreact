@@ -14,7 +14,7 @@ const ArticleDisplay = (props) =>
           <p>{article.headline.main||article.headline}</p>
         </a>
         <p>{processDate(article)}</p>
-        <button onClick={props.handleFunction}>
+        <button id={article._id} onClick={props.handleFunction}>
           {props.operation} Article
         </button>
       </div>
