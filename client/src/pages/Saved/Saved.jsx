@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Saved.css";
 import API from "../../utils/API.js"
+import ArticleDisplay from "../../components/ArticleDisplay"
 
 class Saved extends Component {
   state = {
@@ -14,6 +15,7 @@ class Saved extends Component {
   loadarticles = () => {
     API.getSavedArticles()
       .then(res => {
+        console.log(res)
         this.setState({ articles: res.data })
       }
       )
@@ -24,9 +26,8 @@ class Saved extends Component {
         return (
             <div>
               <p>SAVED PAGE</p>
-              {this.state.articles}
+              <ArticleDisplay articles={this.state.articles} />
             </div>
-            
         )
     }
 }
