@@ -22,9 +22,12 @@ export default {
   getSavedArticles: function() {
     return axios.get("/api/saved");
   },
-  
+
   saveArticle: function(articleData) {
     return axios.post("/api/saved", articleData);
+  },
+
+  deleteArticle: function(articleId) {
+    return axios.delete("/api/saved", articleId);
   }
-  //TODO: post and delete on saved articles route
 };

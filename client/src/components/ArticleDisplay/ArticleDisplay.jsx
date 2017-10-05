@@ -1,15 +1,6 @@
 import React from "react";
 import "./ArticleDisplay.css";
 
-const saveButton = (handleFunction) => {
-  if(handleFunction){
-    return <button onClick={handleFunction}>
-          Save Article
-        </button>
-  }
-  return
-}
-
 const processDate = (article) => {
   let date = new Date(article.pub_date || article.date);
   return date.toString();
@@ -23,7 +14,9 @@ const ArticleDisplay = (props) =>
           <p>{article.headline.main||article.headline}</p>
         </a>
         <p>{processDate(article)}</p>
-        {saveButton(props.handleArticleSave)}
+        <button onClick={props.handleFunction}>
+          {props.operation} Article
+        </button>
       </div>
     )}    
   </div>;

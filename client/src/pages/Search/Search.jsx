@@ -77,7 +77,7 @@ class Search extends Component {
                 handleFormSubmit={this.handleFormSubmit}
                 handleInputChange={this.handleInputChange}
               />
-              <ArticleDisplay articles={this.state.articles} handleArticleSave={this.handleArticleSave} />
+              <ArticleDisplay articles={this.state.articles} handleFunction={this.handleArticleSave} operation="Save" />
             </div>
           </div>
           

@@ -17,19 +17,27 @@ class Saved extends Component {
       .then(res => {
         console.log(res)
         this.setState({ articles: res.data })
-      }
-      )
+      })
       .catch(err => console.log(err));
   };
 
-    render() {
-        return (
-            <div>
-              <p>SAVED PAGE</p>
-              <ArticleDisplay articles={this.state.articles} />
-            </div>
-        )
-    }
+  deletearticle = (id) => {
+    API.deleteArticle(id)
+  }
+
+  handleArticleDelete = event => {
+    let id = "test"
+    this.savearticle(id);
+  }
+
+  render() {
+      return (
+          <div>
+            <p>SAVED PAGE</p>
+            <ArticleDisplay articles={this.state.articles}  handleFunction={this.handleArticleDelete} operation="Delete" />
+          </div>
+      )
+  }
 }
 
 export default Saved;
