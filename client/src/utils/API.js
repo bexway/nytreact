@@ -1,6 +1,6 @@
 import axios from "axios";
-//TODO: replace this with heroku config
-import authKey from "./apikey"
+
+const authKey = process.env.authKey;
 
 var baseURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
